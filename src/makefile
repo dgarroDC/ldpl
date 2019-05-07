@@ -26,7 +26,9 @@ ifeq ($(PREFIX),)
     PREFIX := /usr/local
 endif
 
-all: $(OBJS)
+all: $(OUT)
+
+ldpl: $(OBJS)
 	$(CXX) -g $(OBJS) -o $(OUT) $(LFLAGS)
 
 ldpl_included_lib.cpp: ldpl_lib.cpp

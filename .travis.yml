@@ -1,0 +1,16 @@
+addons:
+  apt:
+    sources:
+    - ubuntu-toolchain-r-test
+    packages:
+    - g++-6
+    - gcc-6
+
+env: CXX=g++-6 CC=gcc-6 PATH=$PATH:${TRAVIS_BUILD_DIR}/src/
+
+install:
+  - git clone https://github.com/Lartu/ldpltest
+
+script:
+  - cd src && make
+  - cd ../ldpltest && ./compileAndRunTester.sh | grep -c "ALL TESTS PASSED SUCCESSFULLY"
