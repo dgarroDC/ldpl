@@ -11,4 +11,4 @@ install:
 
 script:
   - cd src && make
-  - cd ../ldpltest && ./compileAndRunTester.sh | grep -c "ALL TESTS PASSED SUCCESSFULLY"
+  - cd ../ldpltest && ./compileAndRunTester.sh | grep "ALL TESTS PASSED SUCCESSFULLY"
