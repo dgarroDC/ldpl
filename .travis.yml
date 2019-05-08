@@ -4,7 +4,7 @@ dist: xenial
 language: cpp
 compiler: gcc
 
-env: CXX=g++-5 CC=gcc-5 PATH=$PATH:${TRAVIS_BUILD_DIR}/src/
+env: PATH=$PATH:${TRAVIS_BUILD_DIR}/src/
 
 install:
   - git clone https://github.com/Lartu/ldpltest
