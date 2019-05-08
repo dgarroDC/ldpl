@@ -779,7 +779,7 @@ void compile_line(vector<string> & tokens, unsigned int line_num, compiler_state
             else
                 code += " " + tokens[i];
         }
-        state.add_code(get_c_variable(state, tokens[1]) + " =" + code + ";");
+        state.add_code(get_c_variable(state, tokens[1]) + " =" + "0" + ";");
         return;
     }
 
