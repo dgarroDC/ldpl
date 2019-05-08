@@ -1,12 +1,10 @@
-addons:
-  apt:
-    sources:
-    - ubuntu-toolchain-r-test
-    packages:
-    - g++-6
-    - gcc-6
+os: linux
+dist: xenial
 
-env: CXX=g++-6 CC=gcc-6 PATH=$PATH:${TRAVIS_BUILD_DIR}/src/
+language: cpp
+compiler: gcc
+
+env: CXX=g++-5 CC=gcc-5 PATH=$PATH:${TRAVIS_BUILD_DIR}/src/
 
 install:
   - git clone https://github.com/Lartu/ldpltest
