@@ -698,7 +698,7 @@ void compile_line(vector<string> & tokens, unsigned int line_num, compiler_state
         if(state.section_state != 2)
             error("ADD statement outside PROCEDURE section (\033[0m" + current_file + ":"+ to_string(line_num)+"\033[1;31m)");
         //C Code
-        state.add_code(get_c_variable(state, tokens[5]) + " = " + get_c_expression(state, tokens[1]) + " - " + get_c_expression(state, tokens[3]) + ";");
+        state.add_code(get_c_variable(state, tokens[5]) + " = " + get_c_expression(state, tokens[1]) + " + " + get_c_expression(state, tokens[3]) + ";");
         return;
     }
     if(line_like("SUBTRACT $num-expr FROM $num-expr IN $num-var", tokens, state))
@@ -846,7 +846,7 @@ void compile_line(vector<string> & tokens, unsigned int line_num, compiler_state
         for(unsigned int i = 3; i < tokens.size(); ++i){
             state.add_code("join(joinvar, " + get_c_string(state, tokens[i]) + ", joinvar);");
         }
-        state.add_code(get_c_variable(state, tokens[1]) + " = joinvar;");
+        state.add_code(get_c_variable(state, tokens[1]) + " = joinvar + joinvar;");
         return;
     }
 
